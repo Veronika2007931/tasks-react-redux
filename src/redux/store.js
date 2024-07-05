@@ -1,4 +1,5 @@
 import {legacy_createStore as createStore} from "redux" 
+import { devToolsEnhancer } from "@redux-devtools/extension";
 
 
 const initialState = {
@@ -15,7 +16,18 @@ const initialState = {
    };
 
    const rootReducer = (state = initialState, action) => {
-    return state;
-   };
+    switch (action.type) {
+        case "tasks/addtask":
+            return{
+                ...state,
+                tasks:[...state.tasks, action.payload]
+            }
+          
+    
+        default:
+            return state;
+    }
 
+   };
+   const enhancer = devToolsEnhancer();
    export const store = createStore(rootReducer)

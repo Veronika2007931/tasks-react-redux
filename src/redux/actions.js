@@ -7,16 +7,22 @@ export const addTask=(text)=>{
         payload: {
             id: nanoid(),
              text: text,
-              completed: fals 
+              completed: false
         }
     //    те що відправляємо як дані для зміни стейт 
     }
 }
-{
-    type:"task/deleteTask"
+export const deleteTask=(id)=>{
+   return{ 
+    type:"task/deleteTask",
+    payload: id
 }
-{
-    type:"tasks/changeleTask"
+}
+export const toggleComplete=(id)=>{
+   return{ 
+    type:"tasks/toggleComplete",
+    payload: id
+}
 }
 {
     type:"filters/changeFilters"

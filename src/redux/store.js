@@ -22,11 +22,24 @@ const initialState = {
                 ...state,
                 tasks:[...state.tasks, action.payload]
             }
+        case "task/deleteTask":
+            return{
+                ...state,
+                tasks: state.tasks.filter(item => item.id !== action.payload)
+            }
+        case "tasks/toggleComplete" :
+            return{
+                ...state,
+                tasks:state.tasks.map(item => {
+                    return item.id !== action.playload ? item : {...item, completed: !item.completed}
+                })
+            }       
           
     
         default:
             return state;
     }
+
 
    };
    const enhancer = devToolsEnhancer();

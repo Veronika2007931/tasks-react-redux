@@ -1,5 +1,5 @@
 import {legacy_createStore as createStore} from "redux" 
-import { devToolsEnhancer } from "@redux-devtools/extension";
+// import { devToolsEnhancer } from "@redux-devtools/extension";
 
 
 const initialState = {
@@ -17,23 +17,35 @@ const initialState = {
 
    const rootReducer = (state = initialState, action) => {
     switch (action.type) {
-        case "tasks/addtask":
+        case "tasks/addTask":
             return{
                 ...state,
                 tasks:[...state.tasks, action.payload]
             }
-        case "task/deleteTask":
+        case "tasks/deleteTask":
             return{
                 ...state,
                 tasks: state.tasks.filter(item => item.id !== action.payload)
             }
         case "tasks/toggleComplete" :
+           
+            return {
+                ...state,
+                tasks: state.tasks.map(task => {
+                if (task.id === action.payload) {
+                return {
+                ...task,
+                completed: !task.completed,
+                };
+                }
+                return task;
+                }),
+                }
+        case "filters/changeFilters":
             return{
                 ...state,
-                tasks:state.tasks.map(item => {
-                    return item.id !== action.playload ? item : {...item, completed: !item.completed}
-                })
-            }       
+                 filters: {...state.filters, status: action.payload }
+            }          
           
     
         default:
@@ -42,5 +54,5 @@ const initialState = {
 
 
    };
-   const enhancer = devToolsEnhancer();
+//    const enhancer = devToolsEnhancer();
    export const store = createStore(rootReducer)

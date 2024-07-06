@@ -14,7 +14,7 @@ export const addTask=(text)=>{
 }
 export const deleteTask=(id)=>{
    return{ 
-    type:"task/deleteTask",
+    type:"tasks/deleteTask",
     payload: id
 }
 }
@@ -24,6 +24,9 @@ export const toggleComplete=(id)=>{
     payload: id
 }
 }
-{
-    type:"filters/changeFilters"
+export const FilterTask=(value)=>{
+   return{
+        type:"filters/changeFilters",
+        payload: value
+    }
 }

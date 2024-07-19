@@ -1,7 +1,7 @@
  
-import { configureStore, Tuple } from '@reduxjs/toolkit'
-import { filtersReduser } from './filterSlice';
-import { taskReduser } from './taskSlice';
+import { configureStore } from '@reduxjs/toolkit'
+import { filtersReducer } from './filterSlice';
+import { taskReducer } from './taskSlice';
 
 
 
@@ -9,8 +9,8 @@ import { taskReduser } from './taskSlice';
    
   export const store = configureStore({
     reducer: {
-        task: taskReduser,
-        filters: filtersReduser
+        tasks: taskReducer,
+        filters: filtersReducer
     },
   
   })

@@ -14,7 +14,7 @@ const dispatch = useDispatch()
 
     dispatch(addTask({
       id: nanoid(),
-       text: form.element.text.value,
+       text: form.elements.text.value,
         completed: false
   }))
 

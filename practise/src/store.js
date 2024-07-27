@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { configureStore, createSlice } from '@reduxjs/toolkit'
 import { devToolsEnhancer } from '@reduxjs/toolkit/dist/devtoolsExtension'
 import { legacy_createStore as createStore} from 'redux'
 
@@ -31,18 +31,25 @@ import { legacy_createStore as createStore} from 'redux'
 // ось це замість того що вище 
 // Slice сам створює ection
 
-const counterSlice = createSlice({
-    name: 'counter',
-    initialState:{value:5},
-    reducers:{
-        increment(state, action){
-            return{
-                ...state,
-                value: state.value + action.payload
-            }
-        }
-    }
-})
+// const counterSlice = createSlice({
+//     name: 'counter',
+//     initialState:{value:5},
+//     reducers:{
+//         increment(state, action){
+//             return{
+//                 ...state,
+//                 value: state.value + action.payload
+//             }
+//         }
+//     }
+// })
 
-const enhancer = devToolsEnhancer()
-export const store = createStore(rootReducer)
+// const enhancer = devToolsEnhancer()
+// export const store = createStore(rootReducer)
+
+export const store = configureStore({
+    reducer:{
+        task: taskReducer,
+        filters: filtersReducer
+    },
+})

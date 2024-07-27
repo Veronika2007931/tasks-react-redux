@@ -64,7 +64,8 @@ import { getTasks, addTask } from "./operations"
                         .addCase(deleteTask.fulfilled, (state, action) => {
                         state.isLoading = false,
                         state.error = null
-                        state.items.filter(task => task.id ===action.payload)
+                        const idx = state.items.findIndex((item)=>item.id===action.payload.id)
+                        state.items.splice(idx, 1)
                         })
                         .addCase(deleteTask.rejected, (state, action) => {
                         state.error = action.payload

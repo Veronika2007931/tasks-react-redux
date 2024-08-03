@@ -58,18 +58,18 @@ import { getTasks, addTask } from "./operations"
                     .addCase(addTask.rejected, (state, action) => {
                     state.error = action.payload
                     })
-                    .addCase(deleteTask.pending, (state) => {
-                        state.isLoading = true
-                        })
+                    // .addCase(deleteTask.pending, (state) => {
+                    //     state.isLoading = true
+                    //     })
                         .addCase(deleteTask.fulfilled, (state, action) => {
                         state.isLoading = false,
                         state.error = null
                         const idx = state.items.findIndex((item)=>item.id===action.payload.id)
                         state.items.splice(idx, 1)
                         })
-                        .addCase(deleteTask.rejected, (state, action) => {
-                        state.error = action.payload
-                        })
+                        // .addCase(deleteTask.rejected, (state, action) => {
+                        // state.error = action.payload
+                        // })
 
                 }        
           

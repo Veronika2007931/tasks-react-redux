@@ -21,11 +21,17 @@ export const addTask = createAsyncThunk('tasks/addTask', async(text)=>{
     }
 } )
 
-export const deleteTask = createAsyncThunk('tasks/addTask', async()=>{
+export const deleteTask = createAsyncThunk('tasks/addTask', async(task)=>{
     try{
-      const deleteData =  await axios.delete(`/tasks/${id}` )
+      const deleteData =  await axios.delete(`/tasks/${task.id}` )
       return deleteData
     }catch(error){
         console.log(error)
     }
 } )
+
+// export const toggleCompleted = createAsyncThunk('tasks/toggleCompleted', async(task)=>{
+//   try{
+//     const toggleTask = await axios.put
+//   }
+// })

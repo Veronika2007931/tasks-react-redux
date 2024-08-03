@@ -1,6 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit"
-import { Task } from "components/Task/Task"
-import { getTasks, addTask } from "./operations"
+import { getTasks, addTask, deleteTask } from "./operations"
 
 // const initialState = [
 //     { id: 0, text: "Learn HTML and CSS", completed: true },
@@ -40,7 +39,7 @@ import { getTasks, addTask } from "./operations"
                 state.isLoading = true
                 })
                 .addCase(getTasks.fulfilled, (state, action) => {
-                state.isLoading = false,
+                state.isLoading = false
                 state.error = null
                 state.items = action.payload
                 })
@@ -51,25 +50,25 @@ import { getTasks, addTask } from "./operations"
                     state.isLoading = true
                     })
                     .addCase(addTask.fulfilled, (state, action) => {
-                    state.isLoading = false,
+                    state.isLoading = false
                     state.error = null
                     state.items.push(action.payload.data)
                     })
                     .addCase(addTask.rejected, (state, action) => {
                     state.error = action.payload
                     })
-                    // .addCase(deleteTask.pending, (state) => {
-                    //     state.isLoading = true
-                    //     })
+                    .addCase(deleteTask.pending, (state) => {
+                        state.isLoading = true
+                        })
                         .addCase(deleteTask.fulfilled, (state, action) => {
-                        state.isLoading = false,
+                        state.isLoading = false
                         state.error = null
                         const idx = state.items.findIndex((item)=>item.id===action.payload.id)
                         state.items.splice(idx, 1)
                         })
-                        // .addCase(deleteTask.rejected, (state, action) => {
-                        // state.error = action.payload
-                        // })
+                        .addCase(deleteTask.rejected, (state, action) => {
+                        state.error = action.payload
+                        })
 
                 }        
           
@@ -78,5 +77,5 @@ import { getTasks, addTask } from "./operations"
   })
 
 
-  export const { deleteTask, toggleCompleted} = taskSlice.actions
+  export const {  toggleCompleted} = taskSlice.actions
   export const taskReducer = taskSlice.reducer

@@ -21,7 +21,7 @@ export const addTask = createAsyncThunk('tasks/addTask', async(text)=>{
     }
 } )
 
-export const deleteTask = createAsyncThunk('tasks/addTask', async(task)=>{
+export const deleteTask = createAsyncThunk('tasks/deleteTask', async(task)=>{
     try{
       const deleteData =  await axios.delete(`/tasks/${task.id}` )
       return deleteData

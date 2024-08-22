@@ -47,19 +47,19 @@ import { getTasks, addTask, deleteTask } from "./operations"
                 state.error = action.payload
                 })
                 .addCase(addTask.pending, (state) => {
-                    state.isLoading = true
-                    })
-                    .addCase(addTask.fulfilled, (state, action) => {
-                    state.isLoading = false
-                    state.error = null
-                    state.items.push(action.payload.data)
-                    })
-                    .addCase(addTask.rejected, (state, action) => {
-                    state.error = action.payload
-                    })
-                    .addCase(deleteTask.pending, (state) => {
-                        state.isLoading = true
-                        })
+                state.isLoading = true
+                })
+                .addCase(addTask.fulfilled, (state, action) => {
+                state.isLoading = false
+                state.error = null
+                state.items.push(action.payload.data)
+                })
+               .addCase(addTask.rejected, (state, action) => {
+                state.error = action.payload
+                })
+                 .addCase(deleteTask.pending, (state) => {
+                state.isLoading = true
+               })
                         .addCase(deleteTask.fulfilled, (state, action) => {
                         state.isLoading = false
                         state.error = null
@@ -69,6 +69,18 @@ import { getTasks, addTask, deleteTask } from "./operations"
                         .addCase(deleteTask.rejected, (state, action) => {
                         state.error = action.payload
                         })
+                        .addCase(toggleCompleted.pending, (state) => {
+                            state.isLoading = true
+                            })
+                            .addCase(toggleCompleted.fulfilled, (state, action) => {
+                            state.isLoading = false
+                            state.error = null
+                            const idx = state.items.findIndex((item)=>item.id===action.payload.id)
+                            state.items.splice(taskId, 1, action.payload.data)
+                            })
+                            .addCase(toggleCompleted.rejected, (state, action) => {
+                            state.error = action.payload
+                            })
 
                 }        
           
@@ -77,5 +89,5 @@ import { getTasks, addTask, deleteTask } from "./operations"
   })
 
 
-  export const {  toggleCompleted} = taskSlice.actions
+
   export const taskReducer = taskSlice.reducer

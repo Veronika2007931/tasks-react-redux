@@ -1,7 +1,7 @@
-import { Layout } from "components/Layout/Layout";
-import { AppBar } from "components/AppBar/AppBar";
-import { TaskForm } from "components/TaskForm/TaskForm";
-import { TaskList } from "components/TaskList/TaskList";
+import { Layout } from "components/Tasks/Layout/Layout";
+import { AppBar } from "components/Tasks/AppBar/AppBar";
+import { TaskForm } from "components/Tasks/TaskForm/TaskForm";
+import { TaskList } from "components/Tasks/TaskList/TaskList";
 import { useDispatch} from "react-redux";
 import { useEffect } from "react";
 import { getTasks } from "../redux/operations";
@@ -15,8 +15,8 @@ dispatch(getTasks())
 return (
 <Layout>
 <AppBar />
-<TaskForm />
-<TaskList />
+{/* <TaskForm />
+<TaskList /> */}
 </Layout>
 );
 };

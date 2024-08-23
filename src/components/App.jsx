@@ -4,21 +4,20 @@ import { useDispatch} from "react-redux";
 import { useEffect } from "react";
 import { getTasks } from "../redux/operations";
 import {HomePage} from "../pages/HomePage"
+import { LoginPage } from "pages/LoginPage/loginPage";
+import { RegisterPage } from "pages/RegPage/regPage";
+import { TasksPage } from "pages/TaskPage/taskPage";
 
 export const App = () => {
-const dispatch = useDispatch()
 
-useEffect(() => {
-dispatch(getTasks())
-}, [dispatch])
 return (
 <Layout>
 <AppBar />
 <Routes>
     <Rote path="/" element={<HomePage/>}/>
-    <Rote path="/registration" element={<HomePage/>}/>
-    <Rote path="/login" element={<HomePage/>}/>
-    <Rote path="/tasks" element={<HomePage/>}/>
+    <Rote path="/registration" element={<RegisterPage/>}/>
+    <Rote path="/login" element={<LoginPage/>}/>
+    <Rote path="/tasks" element={<TasksPage/>}/>
 </Routes>
 {/* <TaskForm />
 <TaskList /> */}

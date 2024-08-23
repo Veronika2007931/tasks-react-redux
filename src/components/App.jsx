@@ -1,10 +1,9 @@
-import { Layout } from "components/Tasks/Layout/Layout";
-import { AppBar } from "components/Tasks/AppBar/AppBar";
-import { TaskForm } from "components/Tasks/TaskForm/TaskForm";
-import { TaskList } from "components/Tasks/TaskList/TaskList";
+import { Layout } from "components/Layout";
+import { AppBar } from "components/AppBar";
 import { useDispatch} from "react-redux";
 import { useEffect } from "react";
 import { getTasks } from "../redux/operations";
+import {HomePage} from "../pages/HomePage"
 
 export const App = () => {
 const dispatch = useDispatch()
@@ -15,6 +14,12 @@ dispatch(getTasks())
 return (
 <Layout>
 <AppBar />
+<Routes>
+    <Rote path="/" element={<HomePage/>}/>
+    <Rote path="/registration" element={<HomePage/>}/>
+    <Rote path="/login" element={<HomePage/>}/>
+    <Rote path="/tasks" element={<HomePage/>}/>
+</Routes>
 {/* <TaskForm />
 <TaskList /> */}
 </Layout>

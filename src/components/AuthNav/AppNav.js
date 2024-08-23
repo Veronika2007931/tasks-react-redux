@@ -1,5 +1,8 @@
 export const AppNav= ()=>{
   return(
-    <div></div>
+    <div>
+       <Navlink to="/registration"> Registration </Navlink>
+      <Navlink to="/login"> Login </Navlink>
+    </div>
   )
 }

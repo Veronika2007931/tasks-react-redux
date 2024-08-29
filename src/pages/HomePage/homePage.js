@@ -1,4 +1,4 @@
-import s from './HomePage.module.css'
+import {s} from './homePage.module.css'
 export default function HomePage(){
     return(
         <div className={s.container}>

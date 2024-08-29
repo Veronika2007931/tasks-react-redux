@@ -1,7 +1,40 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-axios.defaults.baseURL = 'https://62584f320c918296a49543e7.mockapi.io'
+axios.defaults.baseURL = 'https://goit-task-manager.herokuaoo.com/'
+
+const setAutHeader = token =>{
+  axios.defaults.headers.common.Authorization =`Bearer ${toket}`;
+
+
+};
+
+const clearAuthHeader = () => {
+  axios.defaults.headers.common.Authorization="";
+
+};
+
+export const register = createAsyncThunk(
+  'auth/register',
+  async(newUser, thunkAPI)=>{
+    try {
+      const res = await axios.post('/users /signup', newUser)
+      return res.data
+    } catch (error) {
+      thunkAPI.rejectWithValue('oops!')
+    }
+  }
+);
+
+export const LogIn = createAsyncThunk(
+  'auth/login',
+  async(credentials, thunkAPI)=>{
+
+  }
+)
+
+
+
 
 export const getTasks = createAsyncThunk('tasks/getTasks', async () => {
 try {
@@ -33,5 +66,8 @@ export const deleteTask = createAsyncThunk('tasks/deleteTask', async(task)=>{
 export const toggleCompleted = createAsyncThunk('tasks/toggleCompleted', async(task)=>{
   try{
     const toggleTask = await axios.put(`/tasks/${task.id}`, {completed: !task.completed})
-  }
+    return toggleTask
+  }catch(error){
+    console.log(error)
+}
 });

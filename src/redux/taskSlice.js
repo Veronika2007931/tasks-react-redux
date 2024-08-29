@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit"
-import { getTasks, addTask, deleteTask } from "./operations"
+import { getTasks, addTask, deleteTask, toggleCompleted } from "./operations"
 
 // const initialState = [
 //     { id: 0, text: "Learn HTML and CSS", completed: true },
@@ -72,7 +72,7 @@ import { getTasks, addTask, deleteTask } from "./operations"
                         .addCase(toggleCompleted.pending, (state) => {
                             state.isLoading = true
                             })
-                            .addCase(toggleCompleted.fulfilled, (state, action) => {
+                            .addCase(toggleCompleted.fulfilled, (state, action, taskId) => {
                             state.isLoading = false
                             state.error = null
                             const idx = state.items.findIndex((item)=>item.id===action.payload.id)

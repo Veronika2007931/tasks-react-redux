@@ -3,10 +3,12 @@ import { AppBar } from "components/AppBar";
 import { useDispatch} from "react-redux";
 import { useEffect } from "react";
 import { getTasks } from "../redux/operations";
-import {HomePage} from "../pages/HomePage"
+import {HomePage} from "../pages/HomePage/homePage"
 import { LoginPage } from "pages/LoginPage/loginPage";
 import { RegisterPage } from "pages/RegPage/regPage";
 import { TasksPage } from "pages/TaskPage/taskPage";
+import { Route, Routes } from "react-router-dom";
+
 
 export const App = () => {
 
@@ -14,10 +16,10 @@ return (
 <Layout>
 <AppBar />
 <Routes>
-    <Rote path="/" element={<HomePage/>}/>
-    <Rote path="/registration" element={<RegisterPage/>}/>
-    <Rote path="/login" element={<LoginPage/>}/>
-    <Rote path="/tasks" element={<TasksPage/>}/>
+    <Route path="/" element={<HomePage/>}/>
+    <Route path="/registration" element={<RegisterPage/>}/>
+    <Route path="/login" element={<LoginPage/>}/>
+    <Route path="/tasks" element={<TasksPage/>}/>
 </Routes>
 {/* <TaskForm />
 <TaskList /> */}

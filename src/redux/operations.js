@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-axios.defaults.baseURL = 'https://goit-task-manager.herokuaoo.com/'
+axios.defaults.baseURL = 'https://62584f320c918296a49543e7.mockapi.io'
 
 const setAutHeader = token =>{
   axios.defaults.headers.common.Authorization =`Bearer ${toket}`;

@@ -8,6 +8,7 @@ import { LoginPage } from "pages/LoginPage/loginPage";
 import { RegisterPage } from "pages/RegPage/regPage";
 import { TasksPage } from "pages/TaskPage/taskPage";
 import { Route, Routes } from "react-router-dom";
+import HomePage from "../pages/HomePage/homePage"
 
 
 export const App = () => {

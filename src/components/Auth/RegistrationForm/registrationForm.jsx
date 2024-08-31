@@ -1,5 +1,5 @@
 import {useDispatch } from 'react-redux';
-import { register } from '../../../redux/auth/operation'
+import { register } from '../../../redux/authSlice'
 
 export const RegisterForm = () =>{
 const dispatch = useDispatch();
@@ -8,9 +8,9 @@ const handleSubmit= e =>{
 e.preventDefault();
 const form = e.currentTarget;
 dispatch(register({
-    name: form.element.name.value,
-    emeil: form.element.email.value,
-    password:form.element.password.value
+    name: form.elements.name.value,
+    emeil: form.elements.email.value,
+    password:form.elements.password.value
 }))
  form.reset()
 }

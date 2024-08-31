@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {register} from "./operations"
+
 
 export const authSlice = createSlice({
     name: 'auth',
@@ -9,10 +9,20 @@ export const authSlice = createSlice({
     isLoggedIn: false,
     isRefreshing: false,
  },
- extraReducers: builder => builder.addCase(
-   register.fulfilled, (state, action)=>{
-      state.user = action.payload
-   } )
+//  extraReducers: builder => builder.addCase(
+//    register.fulfilled, (state, action)=>{
+//       state.user = action.payload
+//    } )
+// це було б якщо б ми  використовували інший бек
+
+reducers: {
+   register(state, action ){
+      state.isLoggedIn = true
+    state.user = action.payload
+   }
+
+}
 })
 
-export const authReduser = authSlice.reduser
+export const authReduser = authSlice.reducer
+export const {register} = authSlice.actions

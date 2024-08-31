@@ -1,7 +1,7 @@
-import {TaskForm} from 'components/Tasks/TaskForm'
-import {TaskList} from "components/Tasks/TaskList"
+import {TaskForm} from '../../components/Tasks/TaskForm/TaskForm'
+import {TaskList} from "../../components/Tasks/TaskList/TaskList"
 import { useDispatch } from 'react-redux'
-import { getTasks } from 'redux/operations'
+import { getTasks } from '../../redux/operations'
 import { useEffect } from 'react'
 
 export function TasksPage(){

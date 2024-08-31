@@ -1,9 +1,9 @@
-import { Navlink } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 export const AppNav= ()=>{
   return(
     <div>
-       <Navlink to="/registration"> Registration </Navlink>
-      <Navlink to="/login"> Login </Navlink>
+       <NavLink to="/registration"> Registration </NavLink>
+      <NavLink to="/login"> Login </NavLink>
     </div>
   )
 }

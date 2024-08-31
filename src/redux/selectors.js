@@ -4,7 +4,7 @@ export const selectTasks= state=> state.tasks.items
 export const selectisLoading = state => state.tasks.isLoading
 export const selectisError = state => state.tasks.error
 export const selectFilters= state=> state.filters.status
-
+export const selectIsLogged = state => state.auth.isLoggedIn
 export const selectVisibleTasks = createSelector([selectTasks, selectFilters],
     // в дужкаах зазначені селектори від яких залежить цей селектор тобто без них він не виконається(це якісь дані)
     // в пузатій дужці під коментарем пишемо результат того селектору або просто даємо йому назву щоб використовувати

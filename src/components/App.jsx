@@ -19,8 +19,6 @@ return (
     <Route path="/login" element={<LoginPage/>}/>
     <Route path="/tasks" element={<PrivateRoute redirectTo= "/" component = {<TasksPage/>}/>}/>
 </Routes>
-{/* <TaskForm />
-<TaskList /> */}
 </Layout>
 );
 };
